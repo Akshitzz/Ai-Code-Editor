@@ -1,6 +1,6 @@
-# Polaris: An AI-Powered Code Editor
+# Daksha IDE: An AI-Powered Code Editor
 
-Polaris is a cutting-edge, AI-powered code editor built from the ground up to provide a modern IDE experience in the browser. It combines advanced AI capabilities with a full SaaS business layer, enabling real-time collaboration, in-browser code execution, and intelligent agentic workflows.
+Daksha IDE is a cutting-edge, AI-powered code editor built from the ground up to provide a modern IDE experience in the browser. It combines advanced AI capabilities with a full SaaS business layer, enabling real-time collaboration, in-browser code execution, and intelligent agentic workflows.
 
 ## 🌟 Features
 
@@ -54,32 +54,24 @@ Polaris is a cutting-edge, AI-powered code editor built from the ground up to pr
 2.  **Install dependencies:**
     ```bash
     bun install
-    ```
-
+    
 3.  **Set up Environment Variables:**
     Create a `.env` file in the root directory and add your API keys:
     ```env
-    # Clerk Auth
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
-    CLERK_SECRET_KEY=your_secret_key
+    # Convex deployment
+CONVEX_DEPLOYMENT= your deployment id
 
-    # Convex
-    CONVEX_DEPLOYMENT=your_deployment_id
-    NEXT_PUBLIC_CONVEX_URL=your_convex_url
+# Convex URLs
+NEXT_PUBLIC_CONVEX_URL= your convex url
+NEXT_PUBLIC_CONVEX_SITE_URL= your convex site url
 
-    # Add other keys as needed (Firecrawl, Inngest, Sentry, etc.)
-    ```
+# Better Auth
+BETTER_AUTH_SECRET= your better auth secret
+BETTER_AUTH_URL= your better auth url
 
+    
 4.  **Run the development server:**
-    ```bash
-    bun dev
-    ```
+bun dev
+    
+    
 
-5.  **Open the App:**
-    Navigate to [http://localhost:3000](http://localhost:3000) to see your local instance of Polaris.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
