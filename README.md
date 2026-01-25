@@ -12,7 +12,7 @@ Polaris is a cutting-edge, AI-powered code editor built from the ground up to pr
 * 🐙 **GitHub Integration**: Securely import private or public repositories and export projects directly to new GitHub repos.
 * ⚡ **Background Workflows**: Uses **Inngest** to handle complex, long-running processes like AI agent tasks and large imports without blocking the UI.
 * 🗄️ **Real-time Sync**: **Convex** serves as the real-time database engine, ensuring instant data reactivity across all components.
-* 🔐 **Auth & Billing**: Secure user authentication via **Clerk** (including GitHub OAuth) and a ready-to-scale billing system with tier management.
+* 🔐 **Auth & Billing**: Secure user authentication via **BetterAuth** For User signup-signin and validation  .
 * 🐛 **Observability**: **Sentry** integration for error tracking and session replays, plus LLM monitoring for token usage and cost tracking.
 * 🐰 **AI Code Reviews**: Integrated **CodeRabbit** workflows for automated, AI-powered pull request reviews.
 
@@ -24,7 +24,7 @@ Polaris is a cutting-edge, AI-powered code editor built from the ground up to pr
 * **Language**: [TypeScript](https://www.typescriptlang.org/)
 * **Package Manager**: [Bun](https://bun.sh/)
 * **Database & Sync**: [Convex](https://www.convex.dev/)
-* **Authentication**: [Clerk](https://clerk.com/)
+* **Authentication**: [BetterAuth](https://www.betterauth.dev/)
 * **Workflows**: [Inngest](https://www.inngest.com/)
 * **Code Editor**: [CodeMirror 6](https://codemirror.net/)
 * **Runtime**: [StackBlitz WebContainers](https://webcontainers.io/)
