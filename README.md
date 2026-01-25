@@ -43,16 +43,12 @@ Daksha IDE is a cutting-edge, AI-powered code editor built from the ground up to
 * [Bun](https://bun.sh/) installed on your machine
 * Git
 
-### Installation
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/Polaris.git](https://github.com/your-username/Polaris.git)
-    cd Polaris
+    git clone [https://github.com/Akshitzz/Ai-Code-Editor.git](https://github.com/Akshitzz/Ai-Code-Editor.git)
+    cd Daksha-ide
     ```
 
 2.  **Install dependencies:**
-    ```bash
+    
     bun install
     
 3.  **Set up Environment Variables:**
