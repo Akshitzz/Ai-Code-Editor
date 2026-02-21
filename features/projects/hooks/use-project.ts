@@ -2,6 +2,13 @@ import { useQuery, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import type { Id } from "@/convex/_generated/dataModel";
 
+export const useProject = (projectId:Id<"projects">,skip?: boolean)=>{
+        return useQuery(api.project.getProjectsById,
+            skip ? "skip" : {id:projectId}
+        )
+}
+
+
 export const useProjects = (skip?: boolean) => {
     return useQuery(
         api.project.getProjects,
@@ -41,4 +48,40 @@ export const useCreateProject = () => {
             }
         }
     );
+}
+
+export const userenameProjct =(projectId:Id<"projects">)=>{
+    return useMutation(api.project.renameProjct).withOptimisticUpdate(
+        (localStore,args)=>{
+            const existingProject = localStore.getQuery(
+                api.project.getProjectsById,
+                {id:projectId}
+            );
+            if(existingProject!== undefined && existingProject!== null){
+                localStore.setQuery(
+                    api.project.getProjectsById,
+                    {id:projectId},
+                    {
+                        ...existingProject,
+                        name:args.name,
+                        updatedAt : Date.now()
+                    }
+                )
+            }
+
+            const existingProjects = localStore.getQuery(api.project.getProjects);
+            if(existingProjects!== undefined){
+                localStore.setQuery(
+                    api.project.getProjects,
+                    {},
+                    existingProjects.map((project)=>{
+                        return project._id ===args.id ?{...project,
+                            name:args.name,
+                            updatedAt:Date.now()}
+                            :project
+                    })
+                )
+            }
+        }
+    )
 }
