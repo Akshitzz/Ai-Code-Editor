@@ -1,21 +1,13 @@
-"use client"
+import { redirect } from "next/navigation";
+import { isAuthenticated } from "@/lib/auth-server";
+import AuthPageClient from "./AuthPageClient";
 
-import { useState } from "react"
-import { SignIn } from "@/components/auth/sign-in"
-import { SignUp } from "@/components/auth/sign-up"
+export default async function AuthPage() {
+    const authed = await isAuthenticated();
 
-export default function AuthPage() {
-    const [view, setView] = useState<"sign-in" | "sign-up">("sign-in")
+    if (authed) {
+        redirect("/");
+    }
 
-    return (
-        <div className="flex min-h-screen w-full items-center justify-center p-6 md:p-10">
-            <div className="w-full max-w-sm">
-                {view === "sign-in" ? (
-                    <SignIn onSwitch={() => setView("sign-up")} />
-                ) : (
-                    <SignUp onSwitch={() => setView("sign-in")} />
-                )}
-            </div>
-        </div>
-    )
+    return <AuthPageClient />;
 }
