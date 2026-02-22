@@ -1,9 +1,16 @@
 "use client"
-
+import { FileExplorer } from "@/features/file-explorer";
 import { Id } from "@/convex/_generated/dataModel"
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import { Allotment } from "allotment";
+
+const MAX_SIDEBAR_WIDTH=800
+const MIN_SIDEBAR_WIDTH=200
+const DEFAULT_SIDEBAR_WIDTH=350
+const DEFAULT_MAIN_SIZE=1000
+
 
 const Tab=({
     label,
@@ -59,7 +66,19 @@ export const ProjectIdView =(
                     "absolute inset-0 ",
                     activeView === "editor" ?"visible" :"invisible"
                 )}>
-                    <div>Editor</div>
+                    <Allotment defaultSizes={[DEFAULT_SIDEBAR_WIDTH,DEFAULT_MAIN_SIZE]}>
+                       <Allotment.Pane
+                       snap
+                       minSize={MIN_SIDEBAR_WIDTH}
+                       maxSize={MAX_SIDEBAR_WIDTH}
+                       preferredSize={DEFAULT_MAIN_SIZE}
+                       >
+                        <FileExplorer projectId = {projectId}/>
+                       </Allotment.Pane>
+                       <Allotment.Pane>
+                        <p>Editor View</p>
+                       </Allotment.Pane>
+                    </Allotment>
                 </div>
                 <div className={cn(
                     "absolute inset-0 ",
